@@ -23,7 +23,12 @@
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
+    <li>
+      <a href="#roadmap">Roadmap</a>
+      <ul>
+        <li><a href="#uncertainty">Uncertainty</a></li>
+      </ul>
+    </li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -78,6 +83,17 @@ software and how to install them.
 
 <!-- ROADMAP -->
 ## Roadmap
+1. Start browser
+    * Open a specific browser and load the url inputed from user
+2. Automate element selector
+    * Upen user selection, automatically determine the best element selectors
+3. Output data
+    * Export into nicely formatted csv files
+Potential features:
+- nice user interface
+
+### Uncertainty <a name="uncertainty"/>
+- Should the scraper be a browser add-on or an independent app?
 
 <!-- CONTRIBUTING -->
 ## Contributing
@@ -96,4 +112,3 @@ Contributions are what make the open source community such an amazing place to b
 Wenting Luo - kimluo2993@gmail.com
 
 Project Link: [https://github.com/WentingL/web-scraper](https://github.com/WentingL/web-scraper)
-
