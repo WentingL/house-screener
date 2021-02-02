@@ -252,3 +252,5 @@ cython_debug/
 # Posible web scraper output
 .html
 .csv
+
+.idea/

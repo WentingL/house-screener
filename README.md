@@ -59,6 +59,8 @@ software and how to install them.
   npm install npm@latest -g
   ```
 -->
+* install Scrapy by running `pip install scrapy`
+* install Pylint by running `pip install pylint`
 
 ### Installation
 <!--
