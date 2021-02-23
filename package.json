@@ -1,0 +1,23 @@
+{
+  "name": "web-scraper",
+  "version": "0.1.0",
+  "description": "Real estate analysis project",
+  "main": "realtorcaApi.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WentingL/web-scraper.git"
+  },
+  "author": "Wenting Luo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WentingL/web-scraper/issues"
+  },
+  "homepage": "https://github.com/WentingL/web-scraper#readme",
+  "dependencies": {
+    "node-zillow": "^2.0.0",
+    "realtorca": "^1.1.0"
+  }
+}

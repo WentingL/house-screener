@@ -7,7 +7,7 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'proof_of_concept'
+BOT_NAME = 'Googlebot'
 
 SPIDER_MODULES = ['proof_of_concept.spiders']
 NEWSPIDER_MODULE = 'proof_of_concept.spiders'
