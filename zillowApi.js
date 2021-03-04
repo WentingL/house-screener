@@ -1,7 +1,7 @@
 const zillow = require('node-zillow');
 
 // get key from environment variable
-const z = new zillow("X1-ZWz16scw3u8r2j_3xvfc");
+const z = new zillow();
 
 const params = {
   // address: '2512 Mapleton Ave.',
