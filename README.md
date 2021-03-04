@@ -7,7 +7,7 @@
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
-  <h3>Table of Contents</h3>
+  <summary>Table of Contents</summary>
   <ol>
     <li>
       <a href="#about-the-project">About The Project</a>
