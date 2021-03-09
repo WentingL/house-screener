@@ -113,7 +113,6 @@ venv.bak/
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
-*$py.class
 
 # C extensions
 *.so
@@ -137,6 +136,7 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
+.idea/
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
@@ -252,3 +252,4 @@ cython_debug/
 # Posible web scraper output
 .html
 .csv
+.drawio
