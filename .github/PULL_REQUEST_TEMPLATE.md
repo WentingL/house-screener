@@ -1,12 +1,11 @@
 ### Description
 > Explain why do you want to make the change
-> Describe
+> Describe what is the expected and current behavior
+
 ### All Submissions:
 
 * [ ] Have you followed the guidelines in our Contributing document?
 * [ ] Have you checked to ensure there aren't other open [Pull Requests](../../../pulls) for the same update/change?
-
-<!-- You can erase any parts of this template not applicable to your Pull Request. -->
 
 ### New Feature Submissions:
 
