@@ -258,5 +258,6 @@ cython_debug/
 .csv
 .png
 .jpg
+.db
 
 .idea/
