@@ -1,21 +1,28 @@
-from ..api.api_wrapper import ApiWrapper
+import pytest
+import requests_mock
+
+from ..api.api_wrapper import ApiWrapper, ApiRequestException
+
+query = {"city": "Kelowna"}
 
 
-def test_wrapper_get_for_sale():
+def test_wrapper_get_successful_request():
     """Tests an API call to get houses for sale"""
-    wrapper_instance = ApiWrapper()
+    wrapper_instance = ApiWrapper(api_key="random-key", url="http://random-url")
+    with requests_mock.Mocker() as m:
+        adapter = m.get(wrapper_instance.for_sale_url,
+                        complete_qs=False,
+                        json={'name': 'awesome-mock'})
+        response = wrapper_instance.get(query)
+    assert response.json() == {'name': 'awesome-mock'}
+    assert adapter.call_count == 1
 
 
-def test_wrapper_get_sold():
-    """Tests an API call to get houses for sale"""
-    wrapper_instance = ApiWrapper()
-
-
-def test_wrapper_get_by_mls():
-    """Tests an API call to get houses for sale"""
-    wrapper_instance = ApiWrapper()
-
-
-def test_wrapper_get_for_rent():
-    """Tests an API call to get houses for sale"""
-    wrapper_instance = ApiWrapper()
+def test_wrapper_get_bad_request():
+    wrapper_instance = ApiWrapper(api_key="random-key", url="http://random-url")
+    with requests_mock.Mocker() as m:
+        m.get(wrapper_instance.for_sale_url,
+              complete_qs=False,
+              status_code=404)
+        with pytest.raises(ApiRequestException):
+            wrapper_instance.get(query)
