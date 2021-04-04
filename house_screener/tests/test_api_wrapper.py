@@ -1,9 +1,10 @@
 import pytest
 import requests_mock
 
+from ..api.query_builder import QueryBuilder
 from ..api.api_wrapper import ApiWrapper, ApiRequestException
 
-query = {"city": "Kelowna"}
+query = QueryBuilder().with_city("Kelowna").build()
 
 
 def test_wrapper_get_successful_request():
