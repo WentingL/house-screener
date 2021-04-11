@@ -1,4 +1,5 @@
 import configparser
+import pprint
 
 import requests
 
@@ -35,18 +36,19 @@ class ApiWrapper:
         self.for_rent_url = config.get("URL", "FOR_RENT_URL") if config.has_option("URL", "FOR_RENT_URL") else url
         if not self.for_sale_url: raise ApiConfigPropertyMissingException()
 
-    def get(self, query_dict, url=None):
+    def get(self, query_dict: dict, url=None):
         url = url or self.for_sale_url
         response = requests.get(url, headers=self.__headers, params=query_dict)
-        if response.status_code > 300:
+        if response.status_code >= 300:
             raise ApiRequestException()
         return response
 
 
 if __name__ == "__main__":
-    input_param = {"city": "New York City", "offset": "0", "limit": "200", "state_code": "NY", "sort": "relevance"}
+    input_param = {"CurrentPage": "1", "LatitudeMin": "49.773437", "LongitudeMax": "-119.3199561",
+                   "RecordsPerPage": "10", "LongitudeMin": "-119.589603", "LatitudeMax": "50.025948", "BedRange": "0-0",
+                   "BathRange": "0-0", "NumberOfDays": "0", "CultureId": "1", "PriceMin": "0", "SortBy": "1",
+                   "SortOrder": "A", "RentMin": "0"}  # for Kelowna city
     api_wrapper_instance = ApiWrapper()
-
-    # print(api_wrapper_instance.for_sale_url)
     result = api_wrapper_instance.get(input_param)
-    print(result.text)
+    pprint.pprint(result.json())

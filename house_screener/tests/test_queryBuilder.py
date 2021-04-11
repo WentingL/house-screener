@@ -1,108 +1,31 @@
 import random
 
+import pytest
+
 from house_screener.api.query_builder import QueryBuilder, ParamOption
 from house_screener.tests.random_util import generate_lowercase_string
 
 
-def test_with_city():
-    test_value = generate_lowercase_string(random.randint(1, 10))
-    test_query = QueryBuilder().with_city(test_value).build()
-    assert test_query[ParamOption.CITY] == test_value
-    test_value = random.randint(1, 10)
-    test_query = QueryBuilder().with_city(test_value).build()
-    assert test_query[ParamOption.CITY] == test_value
+@pytest.fixture
+def setup_before_each():
+    test_str_value = generate_lowercase_string(random.randint(1, 10))
+    test_int_value = random.randint(1, 10)
+    rand_enum = random.choice([param.name for param in ParamOption])
+    yield test_str_value, test_int_value, rand_enum
 
 
-def test_with_limit():
-    test_value = generate_lowercase_string(random.randint(1, 10))
-    test_query = QueryBuilder().with_limit(test_value).build()
-    assert test_query[ParamOption.LIMIT] == test_value
-    test_value = random.randint(1, 10)
-    test_query = QueryBuilder().with_limit(test_value).build()
-    assert test_query[ParamOption.LIMIT] == test_value
+def test_with_str_value(setup_before_each):
+    test_str,test_int,rand_enum = setup_before_each
+    test_query = QueryBuilder().with_param(rand_enum, test_str).build()
+    assert test_query[rand_enum] == test_str
+    assert isinstance(test_query[rand_enum], str)
 
 
-def test_with_offset():
-    test_value = generate_lowercase_string(random.randint(1, 10))
-    test_query = QueryBuilder().with_offset(test_value).build()
-    assert test_query[ParamOption.OFFSET] == test_value
-    test_value = random.randint(1, 10)
-    test_query = QueryBuilder().with_offset(test_value).build()
-    assert test_query[ParamOption.OFFSET] == test_value
-
-
-def test_with_state_code():
-    test_value = generate_lowercase_string(random.randint(1, 10))
-    test_query = QueryBuilder().with_state_code(test_value).build()
-    assert test_query[ParamOption.STATE_CODE] == test_value
-    test_value = random.randint(1, 10)
-    test_query = QueryBuilder().with_state_code(test_value).build()
-    assert test_query[ParamOption.STATE_CODE] == test_value
-
-
-def test_with_radius():
-    test_value = generate_lowercase_string(random.randint(1, 10))
-    test_query = QueryBuilder().with_radius(test_value).build()
-    assert test_query[ParamOption.RADIUS] == test_value
-    test_value = random.randint(1, 10)
-    test_query = QueryBuilder().with_radius(test_value).build()
-    assert test_query[ParamOption.RADIUS] == test_value
-
-
-def test_with_baths_min():
-    assert True
-
-
-def test_with_beds_min():
-    assert True
-
-
-def test_with_price_min():
-    assert True
-
-
-def test_with_price_max():
-    assert True
-
-
-def test_with_postal_code():
-    assert True
-
-
-def test_with_sqft_min():
-    assert True
-
-
-def test_with_sqft_max():
-    assert True
-
-
-def test_with_age_min():
-    assert True
-
-
-def test_with_age_max():
-    assert True
-
-
-def test_with_lot_sqft_max():
-    assert True
-
-
-def test_with_lot_sqft_min():
-    assert True
-
-
-def test_with_prop_type():
-    assert True
-
-
-def test_with_sort():
-    assert True
-
-
-def test_with_():
-    assert True
+def test_with_int_value(setup_before_each):
+    test_str,test_int,rand_enum = setup_before_each
+    test_query = QueryBuilder().with_param(rand_enum, test_int).build()
+    assert test_query[rand_enum] == str(test_int)
+    assert isinstance(test_query[rand_enum], str)
 
 
 def test_build():
