@@ -252,6 +252,8 @@ cython_debug/
 # Posible web scraper output
 .html
 .csv
+.txt
+.xlsx
 .drawio
 
 # API Secret

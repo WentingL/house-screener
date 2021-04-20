@@ -3,13 +3,7 @@ import pprint
 
 import requests
 
-
-class ApiConfigPropertyMissingException(Exception):
-    pass
-
-
-class ApiRequestException(Exception):
-    pass
+from house_screener.api.api_error import ApiConfigPropertyMissingException, ApiRequestException
 
 
 class ApiWrapper:
@@ -45,6 +39,7 @@ class ApiWrapper:
 
 
 if __name__ == "__main__":
+    import json
     input_param = {"CurrentPage": "1", "LatitudeMin": "49.773437", "LongitudeMax": "-119.3199561",
                    "RecordsPerPage": "10", "LongitudeMin": "-119.589603", "LatitudeMax": "50.025948", "BedRange": "0-0",
                    "BathRange": "0-0", "NumberOfDays": "0", "CultureId": "1", "PriceMin": "0", "SortBy": "1",
@@ -52,3 +47,5 @@ if __name__ == "__main__":
     api_wrapper_instance = ApiWrapper()
     result = api_wrapper_instance.get(input_param)
     pprint.pprint(result.json())
+    with open('data.txt', 'w') as f:
+        json.dump(result.json(), f)
