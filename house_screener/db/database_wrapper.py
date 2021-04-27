@@ -1,40 +1,22 @@
 import sqlite3
-from house_screener.db.DatabaseError import DatabaseInteractionException
+
+from house_screener.db.database_error import DatabaseInteractionException
+
 
 class DatabaseWrapper:
     db_source = "sourceDatabase.db"
     db_analysis = "analysisDatabase.db"
 
-    def __init__(self):
-        self.conn = None
-        self.cursor = None
-
-    def get_connection(self, db_file):
+    def __init__(self, db_file):
         """ create a database connection to a SQLite database """
-        self.conn = None
         try:
             self.conn = sqlite3.connect(db_file)
             self.cursor = self.conn.cursor()
-        except sqlite3.Error or Exception:
+        except Exception:
             raise DatabaseInteractionException("Cannot establish database connection")
 
-    def update(self):
-        pass
-
-    def insert(self):
-        pass
-
-    def delete(self):
-        pass
-
-    def create_table(self):
-        pass
-
-    def read_with_id(self):
-        pass
-
-    def read_with_fields(self):
-        pass
+    def execute(self, query):
+        self.cursor.execute(query)
 
 
 if __name__ == "__main__":
