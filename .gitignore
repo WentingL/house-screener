@@ -250,6 +250,11 @@ dmypy.json
 cython_debug/
 
 # Posible web scraper output
-.html
-.csv
-.drawio
+*.html
+*.csv
+*.txt
+*.xlsx
+*.drawio
+
+# API Secret
+api-config.properties
