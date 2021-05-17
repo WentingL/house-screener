@@ -1,9 +1,9 @@
 import pytest
 import requests_mock
 
-from ..api.query_builder import QueryBuilder
-from ..api.api_wrapper import ApiWrapper
 from house_screener.api.api_error import ApiRequestException
+from ..api.api_wrapper import ApiWrapper
+from ..api.query_builder import QueryBuilder
 
 query = QueryBuilder().with_city("Kelowna").build()
 

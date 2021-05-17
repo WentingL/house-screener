@@ -3,7 +3,7 @@ import random
 import pytest
 
 from house_screener.api.query_builder import QueryBuilder, ParamOption
-from house_screener.tests.random_util import generate_lowercase_string
+from house_screener.test.random_util import generate_lowercase_string
 
 
 @pytest.fixture
