@@ -146,4 +146,4 @@ cython_debug/
 *.drawio
 
 # API Secret
-api-config.properties
+*api-config.properties
